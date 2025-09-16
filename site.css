@@ -1,6 +1,6 @@
 :root {
   --color-dark: #2a2828;
-  --color-dark-2: #333333;
+  --color-dark-2: #333;
   --color-white: #fff;
   --color-light: #f7f7f7;
   --color-light-2: #fff1ec;
@@ -11,7 +11,12 @@
   --color-2: #898989;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
+  overflow: hidden;
   margin: 0;
   box-sizing: border-box;
   color: #898989;
@@ -77,16 +82,10 @@ body {
   text-decoration: none;
 }
 
-@media (max-width: 728px) {
-  .hidden-xs {
-    display: none;
-  }
+.phone {
+  color: #2a2828;
 }
-@media (min-width: 1200px) {
-  .hidden-xl {
-    display: none;
-  }
-}
+
 .header {
   font-size: 14px;
 }
@@ -113,7 +112,9 @@ body {
 .header__nav-list {
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   gap: 20px;
+  color: #2a2828;
 }
 .header__nav-item {
   display: flex;
@@ -142,6 +143,7 @@ body {
 }
 .topbar {
   display: flex;
+  gap: 20px;
 }
 .topbar__about {
   display: flex;
@@ -167,33 +169,43 @@ body {
   font-weight: 600;
 }
 .topbar__phone-icon {
-  display: none;
+  background-color: #fff1ec;
+  border-radius: 10px;
 }
 .topbar__contact {
   display: flex;
   align-items: center;
-  margin-right: 20px;
 }
 .toggle {
-  display: none;
+  overflow: hidden;
   position: relative;
   float: right;
   padding: 9px 10px;
-  margin-right: 15px;
-  margin-top: 8px;
-  margin-bottom: 8px;
+  padding-bottom: 5px;
   background-color: transparent;
   background-image: none;
-  border: 1px solid transparent;
-  border-radius: 4px;
-  border-color: #ddd;
+  border: none;
 }
+.toggle__sr-only {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+.toggle__ico {
+  display: block;
+  width: 22px;
+  height: 2px;
+  border-radius: 1px;
+  background-color: #888;
+  margin-bottom: 4px;
+}
+
 .dropdown {
   position: relative;
-  border-bottom: 3px solid #f9693c;
 }
-.dropdown--open .dropdown__menu {
-  display: block;
+.dropdown:focus {
+  border-bottom: 3px solid #f9693c;
 }
 .dropdown__toggle {
   background-color: transparent;
@@ -229,6 +241,20 @@ body {
   border-radius: 4px;
   -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+}
+.dropdown--open .dropdown__menu {
+  display: block;
+}
+
+@media (max-width: 728px) {
+  .hidden-xs {
+    display: none;
+  }
+}
+@media (min-width: 1200px) {
+  .hidden-xl {
+    display: none;
+  }
 }
 
 /*# sourceMappingURL=site.css.map */
