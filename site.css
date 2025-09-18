@@ -98,6 +98,7 @@ body {
   align-content: center;
   justify-content: space-between;
   justify-items: center;
+  padding: 10px 0;
 }
 .header__logo {
   max-width: 160px;
@@ -110,7 +111,15 @@ body {
 }
 .header__bottom {
   background-color: #fff;
+  max-height: 0;
   overflow: hidden;
+  transition: all 0.5s ease-out;
+}
+.header__bottom--open {
+  max-height: 1200px;
+}
+.header__bottom-container {
+  border-top: 1px solid #e5e5e5;
 }
 .header__contact-xs {
   display: flex;
@@ -123,7 +132,6 @@ body {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  color: #2a2828;
 }
 .header__nav-item {
   display: flex;
@@ -134,6 +142,7 @@ body {
 }
 .header__subnav-list {
   display: none;
+  width: 100%;
 }
 .header__subnav-link {
   display: block;
@@ -141,19 +150,17 @@ body {
   clear: both;
   font-weight: 400;
   line-height: 1.42857143;
-  color: var(--color-dark-2);
   white-space: nowrap;
 }
 .header__subnav-divider {
   height: 1px;
   margin: 9px 0;
   overflow: hidden;
-  background-color: var(--color-light);
+  background-color: #e5e5e5;
 }
 .header__nav-extra-list {
   display: flex;
   flex-direction: column;
-  color: #2a2828;
 }
 
 .topbar {
@@ -208,6 +215,9 @@ body {
 
 .dropdown {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
 }
 .dropdown:focus {
   border-bottom: 3px solid #f9693c;
@@ -227,26 +237,16 @@ body {
 }
 .dropdown__menu {
   visibility: visible;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  z-index: 1000;
-  float: left;
   min-width: 160px;
   padding: 5px 0;
   margin: 2px 0 0;
   font-size: 14px;
   text-align: left;
-  list-style: none;
-  background-color: #fff;
-  background-clip: padding-box;
-  border: 1px solid #ccc;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  border-top: 1px solid #f9693c;
-  border-radius: 4px;
-  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
 }
+.dropdown--open .dropdown__menu {
+  display: block;
+}
+
 @media (max-width: 820px) {
   .hidden-xs {
     display: none;
